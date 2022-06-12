@@ -1,0 +1,8 @@
+body{
+    background-image: linear-gradient(lightblue, white);
+    background-repeat: no-repeat;
+}
+
+#logo{
+    width: 25vw;
+}
