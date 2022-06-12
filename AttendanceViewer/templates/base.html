@@ -1,0 +1,130 @@
+{% load static %}  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="icon" type="image/png" href="{% static 'Media/FaceTrack-Logo.png' %}"/>
+    <script src="{% static 'script.js' %}?{% now 'U' %}" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}?{% now 'U' %}">
+    
+    <title>FaceTrack</title>
+</head>
+
+<body class="">
+
+    <nav id="navbar" class="navbar navbar-light py-2 fixed-top navbar-expand-md highlightTextOut">
+        <div class="container-fluid">
+
+            <button class="navbar-toggler order-2" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle Navigation">
+                <span class="navbar-dark navbar-toggler-icon"></span>
+            </button>
+
+            <div id="toTop" class="text-light px-2 d-none d-md-block order-3">
+                <a href="#top"><img id="logo" class="img-fluid m-0 p-0" src="{% static 'Media/FaceTrack-Logo.png' %}"></a>
+            </div>
+
+            <div class="row collapse navbar-collapse order-4 me-5" id="nav">
+                <div class="navbar-nav justify-content-end text-end">
+                    <a href="#top" class="nav-link text-center mx-3 active">HOME</a>
+                    <a href="../about" class="nav-link text-center mx-3">ABOUT</a>
+                    <a href="../ucidfilter" class="nav-link text-center mx-3">UCID FILTER</a>
+                    <a href="../archive" class="nav-link text-center mx-3">ARCHIVES</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <hr class="p-0 m-0">
+
+    <section class="mt-2 d-inline">
+        <h1 class="title justify-content-center text-center pt-3 pb-2">FaceTrack Attendance System</h1>
+        <h5 id="today" class="text-end pe-4"><b>Today: </b><span id="date" ></span> </h5>
+    </section>
+        
+    <section class="text-center">
+        <h3> Date: {{displayDate}} </h3>
+        <form action="../external/" method="GET" class="d-flex form justify-content-center">
+            <div class="input-group" style="width: 10%;">
+                <label for="inputlec" class="input-group-text">Lec No: </label>
+                <input id="inputlec" type="number" name="lect" class="form-control d-inline">
+            </div>
+            <button id="start" class="btn btn-primary mx-3">Start App</button>
+        </form>
+        <img src="{% static 'Media/loading.gif' %}" id="loading" class="d-none" width="7%" alt="">
+    </section>
+
+    <hr>
+
+    <form action="../" class="d-flex form justify-content-center" method="GET">
+        <div class="input-group mx-2" style="width: 16%;">
+            <label for="date" class="input-group-text">Date: </label>
+            <input id="date" type="date" name="date" class="form-control" innerHTML=`{{displayDate}}`>
+        </div>
+        <div class="input-group mx-2" style="width: 12%;">
+            <label for="lect" class="input-group-text">Lecture: </label>
+            <input id="lect" type="number" name="lect" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">GO</button>
+    </form>
+
+    <hr>
+
+    <section id="table">
+        <table class="table table-hover table-bordered border-dark text-center">
+            
+            <thead class="table-dark">
+                <th style="width: 10%" >Sr. No.</th>
+                <th style="width: 25%" >UCID</th>
+                <th style="width: 35%" >Name</th>
+                <th style="width: 20%" >Time</th>
+                <th style="width: 10%" >Lecture</th>
+            </thead>
+
+            <tbody class="">
+                {% autoescape off %}
+                        {{rows}}
+                {% endautoescape %}
+            </tbody>
+
+        </table>
+    </section>
+    
+    <!-- FOOTER -->
+
+    <nav id="footer" class="navbar">
+
+        <section id="footerMain" class="">
+
+            <div id="clgDetails" class="navbar-brand row align-items-center">
+                <img src="{% static 'Media/SPIT-Logo.png' %}" id="clgLogo" class="col-6 p-0" alt="">
+                <div class="col-6">
+                    <h1 id="clgName" class="p-0 my-1">Sardar Patel Institute of Technology</h1>
+                    <h2 id="clgBranch" class=" p-0 m-0">Department of Electronics & Telecommunication Engineering</h2>
+                </div>
+            </div>
+
+            <hr class="p-0 my-2">
+
+        </section>
+
+        <section id="footerBottom" class="container">
+            <div id="cpy">
+                <b>Developed By: </b>
+                <a href="https://www.linkedin.com/in/vineet-mankani-8880841b8/" target="_blank">Vineet Mankani</a>  
+                <!-- | <a href="">Shruti Gautam</a> -->
+                <!-- | <a href="">Srushti Gaikwad</a> -->
+            </div>
+        </section>
+    </nav>
+
+</body>
+
+</html>

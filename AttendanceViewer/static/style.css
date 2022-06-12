@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+body{
+    background-image: linear-gradient(cyan, white);
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed;
+    font-family: Poppins;
+    /* text-transform: lowercase; */
+    margin-top: 5.5%;
+    /* margin-bottom: 7%; */
+}
+
+.navbar{
+    background:transparent;
+    background-color:transparent;
+    border-color:transparent;
+}
+
+.navbar.trans {
+    background-color: #FFF;
+    /* background-image: linear-gradient(yellow, white); */
+    /* background-attachment: fixed; */
+    transition: 0.5s;
+}
+
+#logo {
+    width: 12vw;
+    transition: 0.3s;
+}
+
+#logo:hover{
+    transform: scale(1.05);
+}
+
+.nav-link{
+    /* transition: 1s; */
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    color: #C76528;
+}
+
+.nav-link:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2.5px;
+    bottom: 3px;
+    left: 0;
+    background-color: #C76528;
+    transform-origin: bottom right;
+    transition: transform 0.2s ease-out;
+}
+
+.nav-link:hover:after{
+    color: black;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    /* text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: orange;
+    transform: underline translateX(-30px); */
+}
+
+.title{
+    font-family: 'Patrick Hand';
+    font-weight: 600;
+    /* font-family: Caveat; */
+    font-size: 3vw;
+    letter-spacing: 2px;
+}
+
+#today{
+    font-size: 1.1vw;
+    position: absolute;
+    right: 0;
+    top: 15%;
+}
+
+#loading{
+    position: absolute;
+    z-index: 1000;
+    left: 47%;
+    top: 47%;
+}
+
+#table{
+    margin: 0 12.5% 0 12.5%;
+}
+
+/* FOOTER */
+
+#footer{
+    background-image: linear-gradient(cyan, white);
+    background-attachment: fixed;
+    margin-top: 10%;
+    /* position: absolute; */
+    /* bottom: 0; */
+    background-color: #0000;
+    padding: 0.75% 4.5%;
+}
+
+#footerTop{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* #follow{
+    font-size: 2vw;
+    font-weight: 500;
+    margin-right: 14%;
+} */
+
+#footerMain{
+    font-family: 'Mulish', sans-serif;
+    /* border-bottom: 1px solid black; */
+}
+
+.navbar-brand{
+    font-size: 2.8vw;
+    font-weight: 800;
+}
+
+#clgDetails{
+    width: 50%;
+}
+
+#clgLogo{
+    width: 12%;
+}
+
+#clgName{
+    font-size: 1.1vw;
+}
+
+#clgBranch{
+    font-size: 0.9vw;
+}
+/* .navbar-brand span{
+    color: #ffca0c; */
+/* } */
+
+/* #social a{
+    text-decoration: none;
+} */
+
+/* #social img{
+    margin: 0 2%;
+} */
+
+#footerBottom{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.6px;
+    /* padding-top: 0.5%; */
+}
+
+#footerBottom a{
+    color: black;
+    text-decoration: none;
+}
